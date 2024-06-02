@@ -1,13 +1,11 @@
-import { FC } from "react"
-import { memo } from "react";
-
-import { Routes,Route } from "react-router-dom"
+import { memo,FC } from "react";
+import { Routes,Route } from "react-router-dom";
 
 
 
 import { Login } from "../components/pages/Login";
 import { homeroutes } from "./Homeroutes";
-
+// import { Home } from "../components/pages/Home ";
 
 
 
@@ -17,23 +15,27 @@ export const Router:FC = memo(()=> {
         <>
         <Routes>
           <Route path="/login" element={<Login />} />
-
-        {
-            homeroutes.map((route)=>{
-                return(
-                <Route
-                key = {route.path}
-                path={route.path}
-                element={route.children}
-                />
-
-            ) })
-        }
-
-
+          <Route path="/home/*" element={<HomeRoutes/>}/>
         </Routes>
 
-
         </>
-    )
+    );
 });
+
+
+
+
+
+
+const HomeRoutes:FC = ()=> {
+    return(
+        <Routes>
+            {homeroutes.map((route)=>(
+                <Route key = {route.path}
+                       path = {route.path}
+                     element = {route.children}  />
+            ))}
+        </Routes>
+
+    );
+};

@@ -5,17 +5,17 @@ import { UserManagement } from "../components/pages/UserManagement";
 
 
 export const homeroutes = [
-
     {
-        path:"/",
+        path:"",
         children:<Home/>
     },
+
     {
-        path:"/setting",
+        path:"setting",
         children:<Setting/>
     },
     {
-        path:"/user_management",
+        path:"user_management",
         children:<UserManagement/>
     },
 
