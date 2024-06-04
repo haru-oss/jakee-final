@@ -8,12 +8,16 @@ import { Router } from './router/Router';
 
 function App() {
 
+  const Seki=()=>{
+    alert("責任者呼べ")
+  };
+
   return (
 
     <ChakraProvider theme={theme}>
       <BrowserRouter>
       <Router/>
-       <Button colorScheme="red">関淳一ボタン</Button>
+       <Button colorScheme="red" onClick={Seki}>関淳一ボタン</Button>
       </BrowserRouter>
     </ChakraProvider>
 

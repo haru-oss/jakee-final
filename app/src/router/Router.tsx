@@ -5,6 +5,8 @@ import { Routes,Route } from "react-router-dom";
 
 import { Login } from "../components/pages/Login";
 import { homeroutes } from "./Homeroutes";
+import { Page404 } from "../components/pages/Page404";
+import { HeaderLayout } from "../templates/HeaderLayout";
 // import { Home } from "../components/pages/Home ";
 
 
@@ -16,7 +18,9 @@ export const Router:FC = memo(()=> {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/home/*" element={<HomeRoutes/>}/>
+          <Route path="*" element={<Page404/>}/>
         </Routes>
+
 
         </>
     );
@@ -33,7 +37,12 @@ const HomeRoutes:FC = ()=> {
             {homeroutes.map((route)=>(
                 <Route key = {route.path}
                        path = {route.path}
-                     element = {route.children}  />
+
+                     element = {
+                        <HeaderLayout>
+                            {route.children}
+                        </HeaderLayout>
+                     }  />
             ))}
         </Routes>
 
